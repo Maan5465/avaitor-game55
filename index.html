@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aviator Game (Simple Demo)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h1 { color: #0ff; }
+    #plane {
+      font-size: 3rem;
+      transition: transform 0.5s linear;
+    }
+    .btn {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      margin: 1rem;
+      cursor: pointer;
+      background: #0ff;
+      border: none;
+      border-radius: 10px;
+    }
+    .btn:hover {
+      background: #0cc;
+    }
+    #multiplier {
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Aviator Game (Demo)</h1>
+  <div id="plane">🛫</div>
+  <div id="multiplier">1.00x</div>
+  <button class="btn" onclick="startFlight()">Start Flight</button>
+  <button class="btn" onclick="cashOut()">Cash Out</button>
+
+  <script>
+    let multiplier = 1.00;
+    let flightInterval;
+    let cashedOut = false;
+
+    function startFlight() {
+      multiplier = 1.00;
+      cashedOut = false;
+      document.getElementById("multiplier").innerText = multiplier.toFixed(2)
